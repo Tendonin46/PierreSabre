@@ -1,10 +1,49 @@
 package histoire;
 
+import personnages.Humain;
+import personnages.Commercant;
+import personnages.Yakuza;
+import personnages.Ronin;
+
 public class HistoireTP4 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Humain prof = new Humain("Prof","kombucha",54);
+		prof.direBonjour();
+		prof.acheter("une boisson", 12);
+		prof.boire();
+		prof.acheter("un jeu", 2);
+		prof.acheter("un kimono", 50);
+		
+		System.out.println("\n");
+		
+		Commercant marco = new Commercant("Marco","thé",20);
+		marco.direBonjour();
+		marco.seFaireExtorquer();
+		marco.recevoirArgent(15);
+		marco.boire();
+		
+		System.out.println("\n");
+		
+		Yakuza YakuLeNoir = new Yakuza("Yaku Le Noir","whisky",30,"Warsong");
+		YakuLeNoir.direBonjour();
+		YakuLeNoir.extorquer(marco);
+		marco.seFaireExtorquer();
+		YakuLeNoir.seVanter(marco);
+		
+		System.out.println("\n");
+		
+		Ronin roro = new Ronin("Roro","shochu",60);
+		roro.direBonjour();
+		roro.donner(marco);
+		marco.recevoirArgent(6);
+		
+		System.out.println("\n");
+		
+		roro.provoquer(YakuLeNoir);
+		YakuLeNoir.perdre();
 	}
+	
+	
 
 }
