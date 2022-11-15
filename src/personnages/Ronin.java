@@ -8,22 +8,22 @@ public class Ronin extends Humain{
 	}
 
 	public void donner(Commercant beneficiaire) {
-		beneficiaire.gagnerArgent((qteArgent*10)/100);
-		int perdu = (qteArgent*10)/100;
-		perdreArgent((qteArgent*10)/100);
-		System.out.println(parler(beneficiaire.getNom()+" prend ces "+perdu+" sous"));
+		int argentDonne = getqteArgent()*10/100;
+		beneficiaire.gagnerArgent(argentDonne);
+		perdreArgent(argentDonne);
+		System.out.println(parler(beneficiaire.getNom()+" prend ces "+argentDonne+" sous"));
 	}
 	public void provoquer(Yakuza adversaire) {
 		int force = 2*honneur;
 		if(force >= adversaire.getReputaion()) {
 			honneur++;
-			gagnerArgent(adversaire.qteArgent);
+			gagnerArgent(adversaire.getqteArgent());
 			System.out.println(parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à ce pauvre marchand!"));
 			System.out.println(parler("Je t’ai eu petit yakusa!"));
 		}
 		else {
 			honneur--;
-			perdreArgent(qteArgent);
+			perdreArgent(getqteArgent());
 			System.out.println(parler("J'ai perdu contre ce yakuza, mon honneur et ma bourse ont en pris un coup"));
 		}
 	}

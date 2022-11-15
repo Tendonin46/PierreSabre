@@ -1,19 +1,20 @@
 package personnages;
 
 public class Commercant extends Humain {
-	private String boissonFavorite = "thé";
-	
-	public Commercant(String nom, String boissonFavorite, int qteArgent) {
-		super(nom,boissonFavorite,qteArgent);
+
+	public Commercant(String nom, int qteArgent) {
+		super(nom,"th�",qteArgent);
 	}
-	
+
 	public int seFaireExtorquer() {
-		qteArgent-=qteArgent;
+		int argentExtorque = getqteArgent();
+		perdreArgent(argentExtorque);
 		System.out.println(parler("J'ai tout perdu! Le monde est vraiment trop injuste..."));
-		return qteArgent;
+		return argentExtorque;
 	}
+
 	public void recevoirArgent(int argent) {
-		System.out.println(parler(argent+" sous! Je te remercie généreux donateur!"));
+		System.out.println(parler(argent + " sous! Je te remercie généreux donateur!"));
 		gagnerArgent(argent);
 	}
 }

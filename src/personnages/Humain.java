@@ -3,7 +3,7 @@ package personnages;
 public class Humain {
 	private String nom;
 	private String boissonFavorite;
-	protected int qteArgent;
+	private int qteArgent;
 
 	public Humain(String nom, String boissonFavorite, int qteArgent) {
 		this.nom = nom;
@@ -53,7 +53,22 @@ public class Humain {
 		qteArgent-=perte;
 	}
 	
-
+	public void faireConnaissanceAvec(Humain autreHumain) {
+		Humain [] memoire = new Humain[30];
+		int i=0;
+		System.out.println("Bonjour "+ autreHumain.getNom());
+		if(i<30){
+			memoire[i]=autreHumain;
+			i++;
+		}
+		else {
+			memoire[0]=autreHumain;
+			for(int j=0;j<30;j++){
+				memoire[i+1]=memoire[i];
+			}
+			
+		}
+	}
 	
 
 }
